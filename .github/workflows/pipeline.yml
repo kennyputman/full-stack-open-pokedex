@@ -26,7 +26,7 @@ jobs:
         with:
           record: true
           command: npm run test:e2e
-          start: npm run start-prod
+          start: npm run start
           wait-on: http://localhost:5000
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
@@ -34,3 +34,9 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: hidden-savannah-78105
           heroku_email: kbputman@gmail.com
+          healthCheck: "https://hidden-savannah-78105.herokuapp.com/health"
+          checkstring: "ok"
+          delay: 5
+          healthCheck: "https://hidden-savannah-78105.herokuapp.com/version"
+          checkstring: "2"
+          delay: 5
