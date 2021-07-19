@@ -34,9 +34,6 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: hidden-savannah-78105
           heroku_email: kbputman@gmail.com
-          healthCheck: "https://hidden-savannah-78105.herokuapp.com/health"
-          checkstring: "ok"
-          delay: 5
-          healthCheck: "https://hidden-savannah-78105.herokuapp.com/version"
-          checkstring: "2"
+          healthCheck: 'https://hidden-savannah-78105.herokuapp.com/health'
+          checkstring: 'ok'
           delay: 5
