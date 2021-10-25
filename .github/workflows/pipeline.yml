@@ -61,7 +61,14 @@ jobs:
         if: ${{success()}}
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
-          fields: repo,message,commit,author, took
+          status: custom
+          fields: commit,repo,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                color: 'good',
+                text: ` successfull build to ${process.env.AS_REPO}: (${process.env.AS_COMMIT})\n by ${process.env.AS_AUTHOR} in ${process.env.AS_TOOK}`,
+              }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
