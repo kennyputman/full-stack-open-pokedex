@@ -15,6 +15,6 @@ jobs:
       - name: Check the deployed service URL
         uses: jtalk/url-health-check-action@v2
         with:
-          url: https://hidden-savannah-78105.herokuapp.com|https://hidden-savannah-78105.herokuapp.com/pokemon/weedle
+          url: https://hidden-savannah-78105.herokuapp.com
           max-attempts: 3
           retry-delay: 5s
